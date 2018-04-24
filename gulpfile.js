@@ -36,6 +36,7 @@ gulp.task('default', ['watch']);
 gulp.task('build-css', function(){
   //Create an unminified version
   var full = gulp.src([
+    'node_modules/normalize.css/normalize.css',
     'src/scss/main.scss'
   ])
   . pipe(scss())
@@ -44,6 +45,7 @@ gulp.task('build-css', function(){
 
   //Create a minified version
   var min = gulp.src([
+    'node_modules/normalize.css/normalize.css',
     'src/scss/main.scss'
   ])
   . pipe(scss())
@@ -57,12 +59,14 @@ gulp.task('build-css', function(){
 
 gulp.task('build-js', function() {
   var full = gulp.src([
+    'node_modules/jquery/dist/jquery.min.js',
     'src/js/main.js'
   ])
   .pipe(concat('main.js'))
   .pipe(gulp.dest('dist/js'));
 
   var min = gulp.src([
+    'node_modules/jquery/dist/jquery.min.js',
     'src/js/main.js'
   ])
   .pipe(concat('main.min.' + version() + '.js'))
